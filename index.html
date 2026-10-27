@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Independence Day</title>
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 20% 15%, rgba(255,153,51,0.10), transparent 45%),
+      radial-gradient(circle at 80% 85%, rgba(19,136,8,0.12), transparent 45%),
+      #0b1120;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    position: relative;
+  }
+
+  h2 {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+    background: linear-gradient(90deg, #FF9933 0%, #FF9933 35%, #ffffff 45%, #ffffff 55%, #138808 65%, #138808 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 0 0 18px rgba(255,204,0,0.35);
+  }
+
+  h1 {
+    color: #ffcc00;
+    text-shadow: 0 0 10px rgba(255,204,0,0.6);
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+  }
+
+  /* ---------- Triangle ---------- */
+  .triangle {
+    width: 160px;
+    height: 140px;
+    margin: 0 auto 40px;
+    background-image: url("11.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: #333; /* dikhega jab tak image na mile */
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.4));
+  }
+
+  /* ---------- Flagpole (top to bottom) ---------- */
+  .pole-wrap {
+    display: flex;
+    align-items: flex-start;
+    height: 420px;
+    margin-bottom: 30px;
+  }
+
+  .pole {
+    width: 10px;
+    height: 100%;
+    background: linear-gradient(90deg, #8a5a2b, #c99a5b, #8a5a2b);
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    box-shadow: 2px 0 6px rgba(0,0,0,0.5);
+  }
+
+  .pole-top {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 18px;
+    background: radial-gradient(circle at 30% 30%, #ffe08a, #b8860b);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255,215,0,0.8);
+  }
+
+  .pole-base {
+    width: 60px;
+    height: 14px;
+    background: #3a2a1a;
+    border-radius: 4px;
+    margin-left: -25px;
+  }
+
+  /* ---------- India Flag ---------- */
+  .flag {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #333;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    position: relative;
+    margin-top: 8px;
+    transform-origin: left center;
+    animation: wave 3s ease-in-out infinite;
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: perspective(600px) rotateY(0deg); }
+    50%      { transform: perspective(600px) rotateY(8deg); }
+  }
+
+  .stripe {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .saffron { background: #FF9933; }
+  .white   { background: #FFFFFF; position: relative; }
+  .green   { background: #138808; }
+
+  .chakra {
+    width: 44px;
+    height: 44px;
+    border: 2px solid #000080;
+    border-radius: 50%;
+    position: relative;
+    animation: spin 6s linear infinite;
+    background: #FFFFFF;
+  }
+
+  .chakra::before {
+    content: "";
+    position: absolute;
+    top: 2px; left: 2px; right: 2px; bottom: 2px;
+    background:
+      repeating-conic-gradient(#000080 0deg 7.5deg, transparent 7.5deg 15deg);
+    border-radius: 50%;
+    -webkit-mask: radial-gradient(circle, transparent 45%, black 46%);
+            mask: radial-gradient(circle, transparent 45%, black 46%);
+  }
+
+  .chakra::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 6px; height: 6px;
+    background: #000080;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .msg {
+    margin-top: 35px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffcc00;
+  }
+
+  .msg span {
+    display: inline-block;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.1); }
+  }
+  .stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .side-images {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 420px;
+  }
+
+  .side-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  }
+
+  .side-card svg {
+    width: 90px;
+    height: 90px;
+    display: block;
+    margin: 0 auto 6px;
+  }
+
+  .side-card p {
+    margin: 0;
+    font-size: 12px;
+    color: #ffe08a;
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 700px) {
+    .stage { flex-direction: column; }
+    .side-images { flex-direction: row; height: auto; width: 100%; justify-content: center; gap: 20px; }
+  }
+
+  /* ---------- Phone Responsive (590px) ---------- */
+  @media (max-width: 590px) {
+    h1 { font-size: 22px; }
+    h2 { font-size: 18px; letter-spacing: 1.5px; }
+
+    .triangle {
+      width: 110px;
+      height: 96px;
+      margin-bottom: 26px;
+    }
+
+    .pole-wrap { height: 260px; margin-bottom: 20px; }
+    .pole { width: 7px; }
+
+    .flag { width: 190px; height: 128px; }
+    .chakra { width: 30px; height: 30px; }
+
+    .side-images {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      height: auto;
+      width: 100%;
+    }
+
+    .side-card {
+      width: 42%;
+      padding: 8px;
+    }
+    .side-card svg { width: 60px; height: 60px; }
+    .side-card p { font-size: 11px; }
+
+    .msg { font-size: 18px; }
+
+    .ff-avatar { width: 60px; height: 60px; }
+    .ff-avatar svg { width: 44px; height: 44px; }
+    .ff-card { width: 90px; margin: 0 8px; }
+    .ff-card p { font-size: 11px; }
+
+    .credit { font-size: 10px; padding: 4px 8px; right: 8px; bottom: 8px; }
+    .sound-btn { width: 40px; height: 40px; font-size: 17px; top: 10px; right: 10px; }
+  }
+  /* ---------- Freedom Fighters Moving Strip ---------- */
+  .ff-wrap {
+    width: 100%;
+    max-width: 900px;
+    overflow: hidden;
+    margin-top: 45px;
+    padding: 15px 0;
+    background: rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255,204,0,0.4);
+    border-bottom: 1px solid rgba(255,204,0,0.4);
+  }
+
+  .ff-track {
+    display: flex;
+    width: max-content;
+    animation: scrollLeft 20s linear infinite;
+  }
+
+  .ff-card {
+    flex: 0 0 auto;
+    width: 130px;
+    margin: 0 14px;
+    text-align: center;
+  }
+
+  .ff-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 8px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #FF9933 33%, #fff 33%, #fff 66%, #138808 66%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    border: 3px solid #ffcc00;
+    box-shadow: 0 0 10px rgba(255,204,0,0.5);
+  }
+
+  .ff-avatar svg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .ff-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .ff-card p {
+    margin: 0;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ffe08a;
+  }
+
+  @keyframes scrollLeft {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ---------- Bottom corner credit ---------- */
+  .credit {
+    position: fixed;
+    bottom: 12px;
+    right: 16px;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    color: #ffe08a;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,204,0,0.35);
+    padding: 5px 12px;
+    border-radius: 6px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bolder;
+  }
+
+  .credit-photo {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-image: url("myphoto.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-color: #333;
+    border: 2px solid #ffcc00;
+    box-shadow: 0 0 6px rgba(255,204,0,0.5);
+    flex-shrink: 0;
+  }
+
+  /* ---------- Sound Toggle Button ---------- */
+  .sound-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,204,0,0.5);
+    color: #ffcc00;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255,204,0,0.3);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .sound-btn:hover { transform: scale(1.08); background: rgba(255,204,0,0.15); }
+  .sound-btn.playing { animation: soundPulse 1.2s ease-in-out infinite; }
+
+  @keyframes soundPulse {
+    0%, 100% { box-shadow: 0 0 10px rgba(255,204,0,0.3); }
+    50%      { box-shadow: 0 0 18px rgba(255,204,0,0.7); }
+  }
+</style>
+</head>
+<body>
+
+  <audio id="bgAudio" src="anthem.mp3" loop></audio>
+  <button class="sound-btn" id="soundBtn" title="Sound on/off">🔊</button>
+
+  <div class="credit"><div class="credit-photo"></div> RITESH PARASHAR</div>
+
+  <h2>Har Ghar Tiranga</h2>
+  <h1>🇮🇳 Independence Day Special 🇮🇳</h1>
+
+  <div class="triangle"></div>
+
+  <div class="stage">
+
+    <div class="side-images">
+      <div class="side-card">
+        <svg viewBox="0 0 100 100">
+          <rect x="20" y="35" width="10" height="55" fill="#e0c080"/>
+          <rect x="70" y="35" width="10" height="55" fill="#e0c080"/>
+          <path d="M20 35 Q50 5 80 35 L70 35 Q50 20 30 35 Z" fill="#c9a466"/>
+          <rect x="10" y="88" width="80" height="6" fill="#8a6b3a"/>
+          <rect x="42" y="45" width="16" height="45" fill="#c9a466"/>
+        </svg>
+        <p>India Gate</p>
+      </div>
+      <div class="side-card">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="35" r="22" fill="#f2f2f2"/>
+          <rect x="15" y="55" width="70" height="35" fill="#f2f2f2"/>
+          <rect x="10" y="88" width="80" height="6" fill="#cfcfcf"/>
+          <rect x="20" y="15" width="8" height="20" fill="#f2f2f2"/>
+          <rect x="72" y="15" width="8" height="20" fill="#f2f2f2"/>
+          <path d="M45 90 L45 65 Q50 58 55 65 L55 90 Z" fill="#cfcfcf"/>
+        </svg>
+        <p>Taj Mahal</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="pole-wrap">
+        <div class="pole">
+          <div class="pole-top"></div>
+        </div>
+        <div class="flag">
+          <div class="stripe saffron"></div>
+          <div class="stripe white"><div class="chakra"></div></div>
+          <div class="stripe green"></div>
+        </div>
+      </div>
+      <div class="pole-base"></div>
+    </div>
+
+    <div class="side-images">
+      <div class="side-card">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="30" fill="none" stroke="#000080" stroke-width="4"/>
+          <circle cx="50" cy="50" r="4" fill="#000080"/>
+          <g stroke="#000080" stroke-width="2">
+            <line x1="50" y1="20" x2="50" y2="80"/>
+            <line x1="20" y1="50" x2="80" y2="50"/>
+            <line x1="29" y1="29" x2="71" y2="71"/>
+            <line x1="71" y1="29" x2="29" y2="71"/>
+          </g>
+        </svg>
+        <p>Ashoka Chakra</p>
+      </div>
+      <div class="side-card">
+        <svg viewBox="0 0 100 100">
+          <rect x="10" y="60" width="20" height="30" fill="#d9722c"/>
+          <rect x="40" y="45" width="20" height="45" fill="#d9722c"/>
+          <rect x="70" y="30" width="20" height="60" fill="#d9722c"/>
+          <path d="M15 60 L20 45 L25 60 Z" fill="#f5c04a"/>
+          <path d="M45 45 L50 30 L55 45 Z" fill="#f5c04a"/>
+          <path d="M75 30 L80 15 L85 30 Z" fill="#f5c04a"/>
+        </svg>
+        <p>Republic Day Diya</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="msg" id="msg"></div>
+
+  <div class="ff-wrap">
+    <div class="ff-track" id="ffTrack"></div>
+  </div>
+
+  <script>
+    const text = "***** HAPPY INDEPENDENCE DAY *****";
+    const msgEl = document.getElementById('msg');
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        msgEl.innerHTML += "<span>" + text.charAt(i) + "</span>";
+        i++;
+        setTimeout(typeWriter, 60);
+      }
+    }
+    window.onload = typeWriter;
+
+    // ---- Sound toggle (auto ON by default) ----
+    const bgAudio = document.getElementById('bgAudio');
+    const soundBtn = document.getElementById('soundBtn');
+    let isPlaying = false;
+
+    function startSound() {
+      bgAudio.play().then(() => {
+        soundBtn.textContent = '🔊';
+        soundBtn.classList.add('playing');
+        isPlaying = true;
+      }).catch(() => {
+        // Browser ne autoplay block kiya - pehle click/tap pe start hoga
+        isPlaying = false;
+      });
+    }
+
+    // Page load hote hi sound start karne ki koshish
+    startSound();
+
+    // Agar browser ne block kiya, pehla click/tap milte hi start kar do
+    function unlockAudio() {
+      if (!isPlaying) startSound();
+      document.removeEventListener('click', unlockAudio);
+      document.removeEventListener('touchstart', unlockAudio);
+    }
+    document.addEventListener('click', unlockAudio);
+    document.addEventListener('touchstart', unlockAudio);
+
+    soundBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!isPlaying) {
+        bgAudio.play().catch(() => {
+          alert("Audio file nahi mili. 'anthem.mp3' naam ki file HTML ke same folder me daal do.");
+        });
+        soundBtn.textContent = '🔊';
+        soundBtn.classList.add('playing');
+        isPlaying = true;
+      } else {
+        bgAudio.pause();
+        soundBtn.textContent = '🔇';
+        soundBtn.classList.remove('playing');
+        isPlaying = false;
+      }
+    });
+
+    // ---- Freedom Fighters moving strip ----
+    const fighters = [
+      { name: "Mahatma Gandhi", img: "images.jfif" },
+      { name: "Bhagat Singh", img: "Bhagat.jfif" },
+      { name: "Subhas Chandra Bose", img: "3.jfif" },
+      { name: "Rani Lakshmibai", img: "4.jfif" },
+      { name: "Sardar Vallabhbhai Patel", img: "5.jfif" },
+      { name: "Chandrashekhar Azad", img: "6.jpg" },
+      { name: "Jawaharlal Nehru", img: "7.jfif" },
+      { name: "Dr. B.R. Ambedkar", img: "8.jfif" },
+      { name: "Lala Lajpat Rai", img: "9.jfif" },
+      { name: "Mangal Pandey", img: "10.jfif" }
+    ];
+
+    // img blank hone par ye default silhouette dikhega
+    const personSVG = `
+      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="20" r="12" fill="#3a2a1a"/>
+        <path d="M8 60 Q8 34 30 34 Q52 34 52 60 Z" fill="#3a2a1a"/>
+      </svg>`;
+
+    const track = document.getElementById('ffTrack');
+    const list = [...fighters, ...fighters];
+    list.forEach(f => {
+      const card = document.createElement('div');
+      card.className = 'ff-card';
+      const avatarContent = f.img && f.img.trim() !== ""
+        ? `<img src="${f.img}" alt="${f.name}">`
+        : personSVG;
+      card.innerHTML = `<div class="ff-avatar">${avatarContent}</div><p>${f.name}</p>`;
+      track.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
